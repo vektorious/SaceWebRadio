@@ -47,8 +47,6 @@ sudo mv /etc/mpd.conf /etc/mpd_backup.conf &&
 echo "Moving preconfigured mpd.conf into /etc/" &&
 sudo cp radio/mpd.conf /etc/mpd.conf &&
 echo "Creating Desktop Icon" &&
-sudo cp SpaceWebRadio.desktop ~/Desktop/SpaceWebRadio.desktop &&
-echo "Loading Playlist" &&
-mpc load sender
-echo "Done... for now" &&
+sudo cp ./SpaceWebRadio.desktop ~/Desktop/SpaceWebRadio.desktop &&
+echo "Done... for now. Please reboot your Raspberry Pi and run 'mpc load stations' afterwards" &&
 exit 1

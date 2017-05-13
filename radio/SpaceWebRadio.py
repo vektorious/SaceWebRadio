@@ -16,7 +16,7 @@ import mpd
 
 pygame.init()
 
-path = "home/pi/SpaceWebRadio"
+path = "/home/pi/SpaceWebRadio"
 
 display_width = 480
 display_height = 320
