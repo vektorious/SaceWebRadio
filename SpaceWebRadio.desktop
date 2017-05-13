@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=SpaceWebRadio
 Comment=SpaceWebRadio
-Icon=/home/pi/radio/skin/radio_icon.png
-Exec=/home/pi/radio/SpaceWebRadio.py
+Icon=/home/pi/SpaceWebRadio/radio/skin/radio_icon.png
+Exec=/home/pi/SpaceWebRadio/radio/SpaceWebRadio.py
 Type=Application
 Encoding=UTF-8
 Terminal=false

@@ -47,5 +47,8 @@ sudo mv /etc/mpd.conf /etc/mpd_backup.conf &&
 echo "Moving preconfigured mpd.conf into /etc/" &&
 sudo cp radio/mpd.conf /etc/mpd.conf &&
 echo "Creating Desktop Icon" &&
-sudo cp SpaceWebRadio.desktop &&
+sudo cp SpaceWebRadio.desktop ~/Desktop/SpaceWebRadio.desktop &&
+echo "Loading Playlist" &&
+mpc load sender
 echo "Done... for now" &&
+exit 1

@@ -16,6 +16,8 @@ import mpd
 
 pygame.init()
 
+path = "home/pi/SpaceWebRadio"
+
 display_width = 480
 display_height = 320
 
@@ -126,7 +128,7 @@ def radiobutton(sender, x, y, tc, plnum, frame=True):
         txt(sender, smallText, tc, (x + (75 / 2)), (y + (40 / 2)))
 
     if frame is True:
-        buttonbg = Background("/home/pi/radio/skin/buttonbg.png", [x, y])
+        buttonbg = Background(path + "/radio/skin/buttonbg.png", [x, y])
         screen.blit(buttonbg.image, buttonbg.rect)
 
 
@@ -159,7 +161,7 @@ def nextl():
 #screen = pygame.display.set_mode((display_width, display_height))
 screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption("Dem Alex sein Radio")
-back = Background("/home/pi/radio/skin/bg.jpg", [0, 0])
+back = Background(path + "/radio/skin/bg.jpg", [0, 0])
 screen.blit(back.image, back.rect)
 
 num_of_rs_screens = 2
@@ -183,10 +185,10 @@ try:
             radiobutton("EgoFM", 160, 250, white, 1)
             radiobutton("BR3", 245, 250, white, 2)
             radiobutton("DR", 330, 250, white, 3)
-            button("", (display_width - 50), 250, 35, 40, white, frame="/home/pi/radio/skin/rnext.png", action=nextr)
+            button("", (display_width - 50), 250, 35, 40, white, frame=path + "/radio/skin/rnext.png", action=nextr)
 
         elif rs_screen is 1:
-            button("", 15, 250, 35, 40, white, frame="/home/pi/radio/skin/lnext.png", action=nextl)
+            button("", 15, 250, 35, 40, white, frame=path + "/radio/skin/lnext.png", action=nextl)
             radiobutton("DRW", 75, 250, white, 4)
             radiobutton("FhE", 160, 250, white, 6)
             radiobutton("PlanetR", 245, 250, white, 6)
@@ -194,7 +196,7 @@ try:
             #button("", (display_width - 50), 250, 35, 40, white, frame="/Users/Alex/Desktop/skin/rnext.png", action=nextr)
 
         elif rs_screen is 2:
-            button("", 15, 250, 35, 40, white, frame="/home/pi/radio/skin/lnext.png", action=nextl)
+            button("", 15, 250, 35, 40, white, frame=path + "/radio/skin/lnext.png", action=nextl)
             radiobutton("M94,5", 75, 250, white, 0)
             radiobutton("VW", 160, 250, white, 1)
             radiobutton("XY", 245, 250, white, 2)

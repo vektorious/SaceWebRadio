@@ -1,0 +1,22 @@
+EXTM3U
+
+#EXTINF: -1, FM4
+http://mp3stream1.apasf.apa.at:8000/
+
+#EXTINF: -1, EgoFM
+http://mp3ad.egofm.c.nmdn.net/ps-egofmraw_192/livestream.mp3
+
+#EXTINF: -1, BR3
+http://br-mp3-bayern3-m.akacast.akamaistream.net/7/442/142692/v1/gnl.akacast.akamaistream.net/br_mp3_bayern3_m
+
+#EXTINF: -1, DR
+http://dradio_mp3_dlf_m.akacast.akamaistream.net/7/249/142684/v1/gnl.akacast.akamaistream.net/dradio_mp3_dlf_m
+
+#EXTINF: -1, DR Wissen
+http://stream.dradio.de/7/728/142684/v1/gnl.akacast.akamaistream.net/dradio_mp3_dwissen_m
+
+#EXTINF: -1, FHEuropa
+http://fhe-lh.akamaihd.net/i/wdr_fhe@384699/index_1_a-p.m3u8?sd=10&rebase=on
+
+#EXTINF: -1, PlanetRadio
+http://mp3.planetradio.de/planetradio/hqlivestream.mp3
