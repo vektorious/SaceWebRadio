@@ -158,9 +158,9 @@ def nextl():
     rs_screen -= 1
 
 #init screen
-#screen = pygame.display.set_mode((display_width, display_height))
-screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-pygame.display.set_caption("Dem Alex sein Radio")
+screen = pygame.display.set_mode((display_width, display_height))
+#screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+pygame.display.set_caption("Space Web Radio")
 back = Background(path + "/radio/skin/bg.jpg", [0, 0])
 screen.blit(back.image, back.rect)
 
