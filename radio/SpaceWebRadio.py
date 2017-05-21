@@ -219,18 +219,18 @@ try:
             radiobutton("EgoFM", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*2, height_radiostations, white, 1)
             radiobutton("BR3", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*3, height_radiostations, white, 2)
             radiobutton("DR", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*4, height_radiostations, white, 3)
-            button("", (display_width - 50), height_radiostations, next_width, next_height, white, frame=skinpath + "rnext.png", action=nextr)
+            button("", ((display_width/10)*9)-next_width, height_radiostations, next_width, next_height, white, frame=skinpath + "rnext.png", action=nextr)
 
         elif rs_screen is 1:
-            button("", 15, height_radiostations, next_width, next_height, white, frame=skinpath + "lnext.png", action=nextl)
+            button("", (display_width/10), height_radiostations, next_width, next_height, white, frame=skinpath + "lnext.png", action=nextl)
             radiobutton("DRW", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*1, height_radiostations, white, 4)
             radiobutton("FhE", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*2, height_radiostations, white, 6)
             radiobutton("PlanetR", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*3, height_radiostations, white, 6)
             radiobutton("RA", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*4, height_radiostations, white, 6)
-            #button("", (display_width - 50), height_radiostations, next_width, next_height, white, frame="/Users/Alex/Desktop/skin/rnext.png", action=nextr)
+            button("", ((display_width/10)*9)-next_width, height_radiostations, next_width, next_height, white, frame="/Users/Alex/Desktop/skin/rnext.png", action=nextr)
 
         elif rs_screen is 2:
-            button("", 15, height_radiostations, next_width, next_height, white, frame=skinpath + "lnext.png", action=nextl)
+            button("", (display_width/10), height_radiostations, next_width, next_height, white, frame=skinpath + "lnext.png", action=nextl)
             radiobutton("M94,5", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*1, height_radiostations, white, 0)
             radiobutton("VW", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*2, height_radiostations, white, 1)
             radiobutton("XY", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*3, height_radiostations, white, 2)
