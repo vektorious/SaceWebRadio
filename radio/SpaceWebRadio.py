@@ -236,7 +236,7 @@ try:
             radiobutton("XY", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*3, height_radiostations, white, 2)
             radiobutton("Z", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*4, height_radiostations, white, 3)
 
-        button("Quit", (display_width/10)*9, 20, 75, 40, white, action=quitit)
+        button("Quit", (display_width/10)*9, (display_height/50), button_width, button_height, white, action=quitit)
 
         txt("SpaceWebRadio", largeText, graywhite, (display_width / 2), (display_height / 10))
 
