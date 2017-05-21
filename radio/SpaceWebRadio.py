@@ -219,18 +219,18 @@ try:
 
         elif rs_screen is 1:
             button("", (display_width/10), height_radiostations, next_width, next_height, white, frame=skinpath + "lnext.png", action=nextl)
-            radiobutton("DRW", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*1, height_radiostations, white, 4)
-            radiobutton("FhE", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*2, height_radiostations, white, 6)
+            radiobutton("DRWissen", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*1, height_radiostations, white, 4)
+            radiobutton("FhEuropa", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*2, height_radiostations, white, 5)
             radiobutton("PlanetR", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*3, height_radiostations, white, 6)
-            radiobutton("RA", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*4, height_radiostations, white, 6)
+            radiobutton("KingDub", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*4, height_radiostations, white, 7)
             button("", ((display_width/10)*9)-next_width, height_radiostations, next_width, next_height, white, frame=skinpath + "rnext.png", action=nextr)
 
         elif rs_screen is 2:
             button("", (display_width/10), height_radiostations, next_width, next_height, white, frame=skinpath + "lnext.png", action=nextl)
-            radiobutton("M94,5", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*1, height_radiostations, white, 0)
-            radiobutton("VW", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*2, height_radiostations, white, 1)
-            radiobutton("XY", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*3, height_radiostations, white, 2)
-            radiobutton("Z", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*4, height_radiostations, white, 3)
+            radiobutton("M94,5", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*1, height_radiostations, white, 8)
+            radiobutton("Reggae", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*2, height_radiostations, white, 9)
+            radiobutton("Power", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*3, height_radiostations, white, 10)
+            radiobutton("MetalRock", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*4, height_radiostations, white, 11)
 
         button("Quit", (display_width/10)*9, (display_height/50), button_width, button_height, white, action=quitit)
 
