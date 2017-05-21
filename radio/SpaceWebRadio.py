@@ -42,10 +42,6 @@ width_radiobuttons = ((display_width/10)*9)-(display_width/10) - next_width
 radiobuttons_per_bar = 5
 radiobutton_distance = (width_radiobuttons/5)
 
-display_width = 480
-display_height = 320
-
-
 #init MPC
 mpc = mpd.MPDClient(use_unicode=True)
 mpc.timeout = 10
@@ -227,7 +223,7 @@ try:
             radiobutton("FhE", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*2, height_radiostations, white, 6)
             radiobutton("PlanetR", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*3, height_radiostations, white, 6)
             radiobutton("RA", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*4, height_radiostations, white, 6)
-            button("", ((display_width/10)*9)-next_width, height_radiostations, next_width, next_height, white, frame="/Users/Alex/Desktop/skin/rnext.png", action=nextr)
+            button("", ((display_width/10)*9)-next_width, height_radiostations, next_width, next_height, white, frame=skinpath + "rnext.png", action=nextr)
 
         elif rs_screen is 2:
             button("", (display_width/10), height_radiostations, next_width, next_height, white, frame=skinpath + "lnext.png", action=nextl)
