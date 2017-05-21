@@ -16,7 +16,31 @@ import mpd
 
 pygame.init()
 
-path = "/home/pi/SpaceWebRadio"
+touchscreen = True
+size = "7inch"  # 7inch oder 3.5inch possible
+
+if size is "3.5inch":
+    display_width = 480
+    display_height = 320
+    button_width = 75
+    button_height = 40
+    next_width = 35
+    next_height = 40
+    skinpath = "/home/pi/SpaceWebRadio/radio/skin/3.5inch/"
+
+if size is "7inch":
+    display_width = 1024
+    display_height = 600
+    button_width = 112
+    button_height = 60
+    next_width = 53
+    next_height = 60
+    skinpath = "/home/pi/SpaceWebRadio/radio/skin/7inch/"
+
+height_radiostations = (display_height/10)*8
+width_radiobuttons = ((display_width/10)*9)-(display_width/10) - next_width
+radiobuttons_per_bar = 5
+radiobutton_distance = (width_radiobuttons/5)
 
 display_width = 480
 display_height = 320
@@ -38,10 +62,17 @@ bright_green = (0, 255, 0)
 graywhite = (189, 216, 245)
 
 #Fonts
-largeText = pygame.font.SysFont("freeserif", 25, bold=1)
-mediumText = pygame.font.SysFont("freeserif", 20, bold=1)
-smallText = pygame.font.SysFont("freeserif", 15, bold=0)
-smallTextb = pygame.font.SysFont("freeserif", 16, bold=1)
+if size is "3.5inch":
+    largeText = pygame.font.SysFont("freeserif", 25, bold=1)
+    mediumText = pygame.font.SysFont("freeserif", 20, bold=1)
+    smallText = pygame.font.SysFont("freeserif", 15, bold=0)
+    smallTextb = pygame.font.SysFont("freeserif", 16, bold=1)
+
+if size is "7inch":
+    largeText = pygame.font.SysFont("freeserif", 27, bold=1)
+    mediumText = pygame.font.SysFont("freeserif", 22, bold=1)
+    smallText = pygame.font.SysFont("freeserif", 17, bold=0)
+    smallTextb = pygame.font.SysFont("freeserif", 18, bold=1)
 
 #init clock
 clock = pygame.time.Clock()
@@ -118,17 +149,17 @@ def radiobutton(sender, x, y, tc, plnum, frame=True):
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
 
-    if x + 75 > mouse[0] > x and y + 40 > mouse[1] > y:
-        txt(sender, smallTextb, tc, (x + (75/ 2)), (y + (40/ 2)))
+    if x + button_width > mouse[0] > x and y + button_height > mouse[1] > y:
+        txt(sender, smallTextb, tc, (x + (button_width/ 2)), (y + (button_height/ 2)))
         if click[0] is 1:
             mpc.play(plnum)
             playingatm = mpc.currentsong().get("title")
             clock.tick(60)
     else:
-        txt(sender, smallText, tc, (x + (75 / 2)), (y + (40 / 2)))
+        txt(sender, smallText, tc, (x + (button_width / 2)), (y + (button_height / 2)))
 
     if frame is True:
-        buttonbg = Background(path + "/radio/skin/buttonbg.png", [x, y])
+        buttonbg = Background(skinpath + "buttonbg.png", [x, y])
         screen.blit(buttonbg.image, buttonbg.rect)
 
 
@@ -158,10 +189,13 @@ def nextl():
     rs_screen -= 1
 
 #init screen
-screen = pygame.display.set_mode((display_width, display_height))
-#screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+if touchscreen:
+    screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+else:
+    screen = pygame.display.set_mode((display_width, display_height))
+
 pygame.display.set_caption("Space Web Radio")
-back = Background(path + "/radio/skin/bg.jpg", [0, 0])
+back = Background(skinpath + "bg.jpg", [0, 0])
 screen.blit(back.image, back.rect)
 
 num_of_rs_screens = 2
@@ -181,39 +215,39 @@ try:
                 running = False
 
         if rs_screen is 0:
-            radiobutton("FM4", 75, 250, white, 0)
-            radiobutton("EgoFM", 160, 250, white, 1)
-            radiobutton("BR3", 245, 250, white, 2)
-            radiobutton("DR", 330, 250, white, 3)
-            button("", (display_width - 50), 250, 35, 40, white, frame=path + "/radio/skin/rnext.png", action=nextr)
+            radiobutton("FM4", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*1, height_radiostations, white, 0)
+            radiobutton("EgoFM", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*2, height_radiostations, white, 1)
+            radiobutton("BR3", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*3, height_radiostations, white, 2)
+            radiobutton("DR", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*4, height_radiostations, white, 3)
+            button("", (display_width - 50), height_radiostations, next_width, next_height, white, frame=skinpath + "rnext.png", action=nextr)
 
         elif rs_screen is 1:
-            button("", 15, 250, 35, 40, white, frame=path + "/radio/skin/lnext.png", action=nextl)
-            radiobutton("DRW", 75, 250, white, 4)
-            radiobutton("FhE", 160, 250, white, 6)
-            radiobutton("PlanetR", 245, 250, white, 6)
-            radiobutton("RA", 330, 250, white, 6)
-            #button("", (display_width - 50), 250, 35, 40, white, frame="/Users/Alex/Desktop/skin/rnext.png", action=nextr)
+            button("", 15, height_radiostations, next_width, next_height, white, frame=skinpath + "lnext.png", action=nextl)
+            radiobutton("DRW", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*1, height_radiostations, white, 4)
+            radiobutton("FhE", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*2, height_radiostations, white, 6)
+            radiobutton("PlanetR", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*3, height_radiostations, white, 6)
+            radiobutton("RA", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*4, height_radiostations, white, 6)
+            #button("", (display_width - 50), height_radiostations, next_width, next_height, white, frame="/Users/Alex/Desktop/skin/rnext.png", action=nextr)
 
         elif rs_screen is 2:
-            button("", 15, 250, 35, 40, white, frame=path + "/radio/skin/lnext.png", action=nextl)
-            radiobutton("M94,5", 75, 250, white, 0)
-            radiobutton("VW", 160, 250, white, 1)
-            radiobutton("XY", 245, 250, white, 2)
-            radiobutton("Z", 330, 250, white, 3)
+            button("", 15, height_radiostations, next_width, next_height, white, frame=skinpath + "lnext.png", action=nextl)
+            radiobutton("M94,5", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*1, height_radiostations, white, 0)
+            radiobutton("VW", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*2, height_radiostations, white, 1)
+            radiobutton("XY", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*3, height_radiostations, white, 2)
+            radiobutton("Z", (display_width/10) + next_width/2 - button_width/2 + radiobutton_distance*4, height_radiostations, white, 3)
 
-        button("Quit", (display_width - 75), 20, 75, 40, white, action=quitit)
+        button("Quit", (display_width/10)*9, 20, 75, 40, white, action=quitit)
 
-        txt("Dem Alex sein Radio", largeText, graywhite, (display_width / 2), (display_height / 10))
+        txt("SpaceWebRadio", largeText, graywhite, (display_width / 2), (display_height / 10))
 
         timenow = str(datetime.datetime.now())[0:19]
         txt(timenow, mediumText, graywhite, (display_width / 2), (display_height / 5))
 
-        txt("Radiostations:", mediumText, graywhite, 15, 200, center=False)
+        txt("Radiostations:", mediumText, graywhite, (display_width / 20), display_height*0.7, center=False)
 
-        txt("Playing:", mediumText, graywhite, 15, 100, center=False)
+        txt("Playing:", mediumText, graywhite, (display_width / 20), display_height*0.3, center=False)
 
-        txt(playingatm, mediumText, graywhite, 15, ((display_height / 3) + 50), killline=True, center=False)
+        txt(playingatm, mediumText, graywhite, (display_width / 20), ((display_height / 3) + 50), killline=True, center=False)
 
         pygame.display.update()
         clock.tick(15)
